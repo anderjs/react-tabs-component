@@ -3,14 +3,17 @@ import { bootstrapClassNames } from './constants';
 import PropTypes from 'prop-types';
 
 
-export const Tabs = ({ content, defaultTab = 0 }) => {
+export const Tabs = ({ content, defaultTab = 0, onChange }) => {
   const [currentTab, setCurrentTab] = React.useState(defaultTab);
   /**
    * Shows the current tabNumber.
    * @param {number} tabIndex 
    */
   function onClickTab(tabIndex) {
-    if(tabIndex !== currentTab) return setCurrentTab(tabIndex);
+    if(tabIndex !== currentTab) { 
+      setCurrentTab(tabIndex);
+      if(onChange)
+    }
   };
 
   function getActiveTab(tabIndex) {
